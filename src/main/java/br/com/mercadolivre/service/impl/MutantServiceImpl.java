@@ -1,16 +1,28 @@
 package br.com.mercadolivre.service.impl;
 
 import br.com.mercadolivre.api.exception.ForbiddenException;
+import br.com.mercadolivre.repository.MutantRepository;
+import br.com.mercadolivre.entity.Dna;
 import br.com.mercadolivre.service.MutantService;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.stereotype.Service;
 /**
  * @author Tomas Anderson Souza Silva
  * 
  * Serviço de validação de dna mutante.
  * Um dna será mutante se existerem duas sequências de caracteres repetidos,
- * em qualquer sentido dos seguintes: horizontal, vertical ou transversal.
+ * em qualquer sentido dos seguintes: horizontal, vertical ou diagonal.
  */
+@Service
 public class MutantServiceImpl implements MutantService {
+
+	MutantRepository mutantRepository;
+
+	@Autowired
+	public MutantServiceImpl (MutantRepository mutantRepository) {
+		this.mutantRepository = mutantRepository;
+	}
 
 	@Override
 	public boolean isMutant(String[] dna) {
@@ -23,33 +35,43 @@ public class MutantServiceImpl implements MutantService {
 		
 		if(checkSequenceInString(dna[1].toCharArray())) 
 			howManySequences++;
-		
-		if(howManySequences == 2) 
+
+		if(howManySequences == 2) {
+			registerDnaIfUnic(dna.toString(), true);
 			return true;
+		}
 		
 		if(checkSequenceInString(dna[2].toCharArray())) 
 			howManySequences++;
-		
-		if(howManySequences == 2) 
+
+		if(howManySequences == 2) {
+			registerDnaIfUnic(dna.toString(), true);
 			return true;
+		}
 		
 		if(checkSequenceInString(dna[3].toCharArray())) 
 			howManySequences++;
-		
-		if(howManySequences == 2) 
+
+		if(howManySequences == 2) {
+			registerDnaIfUnic(dna.toString(), true);
 			return true;
+		}
 		
 		if(checkSequenceInString(dna[4].toCharArray())) 
 			howManySequences++;
-		
-		if(howManySequences == 2) 
+
+		if(howManySequences == 2) {
+			registerDnaIfUnic(dna.toString(), true);
 			return true;
+		}
 		
 		if(checkSequenceInString(dna[5].toCharArray())) 
 			howManySequences++;
-		
-		if(howManySequences == 2) 
+
+		if(howManySequences == 2) {
+			registerDnaIfUnic(dna.toString(), true);
 			return true;
+		}
 		
 		//inicia os array de caracteres utilizados para armazenar as linhas que precisam ser validadas
 		char[] vertical0 = new char[6];
@@ -69,7 +91,7 @@ public class MutantServiceImpl implements MutantService {
 		char[] diagonalLeft3 = new char[6];
 		char[] diagonalLeft4 = new char[6];
 		
-		//monta as linhas verticais e transversais para futura validação
+		//monta as linhas verticais e diagonais para futura validação
 		for (int i = 0; i < dna.length; i++) {
 			switch (i) {
 			case 0:
@@ -282,46 +304,141 @@ public class MutantServiceImpl implements MutantService {
 		
 		}
 		
-		//valida agora as sequências verticais e transversais, para verifcar as sequências repetidas
-		if(checkSequenceInString(vertical0)) howManySequences++;
-		if(howManySequences == 2) return true;
-		if(checkSequenceInString(vertical1)) howManySequences++;
-		if(howManySequences == 2) return true;
-		if(checkSequenceInString(vertical2)) howManySequences++;
-		if(howManySequences == 2) return true;
-		if(checkSequenceInString(vertical3)) howManySequences++;
-		if(howManySequences == 2) return true;
-		if(checkSequenceInString(vertical4)) howManySequences++;
-		if(howManySequences == 2) return true;
-		if(checkSequenceInString(vertical5)) howManySequences++;
-		if(howManySequences == 2) return true;
-		if(checkSequenceInString(diagonalRight0)) howManySequences++;
-		if(howManySequences == 2) return true;
-		if(checkSequenceInString(diagonalRight1)) howManySequences++;
-		if(howManySequences == 2) return true;
-		if(checkSequenceInString(diagonalRight2)) howManySequences++;
-		if(howManySequences == 2) return true;
-		if(checkSequenceInString(diagonalRight3)) howManySequences++;
-		if(howManySequences == 2) return true;
-		if(checkSequenceInString(diagonalRight4)) howManySequences++;
-		if(howManySequences == 2) return true;
-		if(checkSequenceInString(diagonalLeft0)) howManySequences++;
-		if(howManySequences == 2) return true;
-		if(checkSequenceInString(diagonalLeft1)) howManySequences++;
-		if(howManySequences == 2) return true;
-		if(checkSequenceInString(diagonalLeft2)) howManySequences++;
-		if(howManySequences == 2) return true;
-		if(checkSequenceInString(diagonalLeft3)) howManySequences++;
-		if(howManySequences == 2) return true;
-		if(checkSequenceInString(diagonalLeft4)) howManySequences++;
-		if(howManySequences == 2) return true;
-		
+		//valida agora as sequências verticais e diagonais, para verifcar as sequências repetidas
+		if(checkSequenceInString(vertical0))
+			howManySequences++;
+
+		if(howManySequences == 2) {
+			registerDnaIfUnic(dna.toString(), true);
+			return true;
+		}
+
+		if(checkSequenceInString(vertical1))
+			howManySequences++;
+
+		if(howManySequences == 2) {
+			registerDnaIfUnic(dna.toString(), true);
+			return true;
+		}
+
+		if(checkSequenceInString(vertical2))
+			howManySequences++;
+
+		if(howManySequences == 2) {
+			registerDnaIfUnic(dna.toString(), true);
+			return true;
+		}
+
+		if(checkSequenceInString(vertical3))
+			howManySequences++;
+
+		if(howManySequences == 2) {
+			registerDnaIfUnic(dna.toString(), true);
+			return true;
+		}
+
+		if(checkSequenceInString(vertical4))
+			howManySequences++;
+
+		if(howManySequences == 2) {
+			registerDnaIfUnic(dna.toString(), true);
+			return true;
+		}
+
+		if(checkSequenceInString(vertical5))
+			howManySequences++;
+
+		if(howManySequences == 2) {
+			registerDnaIfUnic(dna.toString(), true);
+			return true;
+		}
+
+		if(checkSequenceInString(diagonalRight0))
+			howManySequences++;
+
+		if(howManySequences == 2) {
+			registerDnaIfUnic(dna.toString(), true);
+			return true;
+		}
+
+		if(checkSequenceInString(diagonalRight1))
+			howManySequences++;
+
+		if(howManySequences == 2) {
+			registerDnaIfUnic(dna.toString(), true);
+			return true;
+		}
+
+		if(checkSequenceInString(diagonalRight2))
+			howManySequences++;
+
+		if(howManySequences == 2) {
+			registerDnaIfUnic(dna.toString(), true);
+			return true;
+		}
+
+		if(checkSequenceInString(diagonalRight3))
+			howManySequences++;
+
+		if(howManySequences == 2) {
+			registerDnaIfUnic(dna.toString(), true);
+			return true;
+		}
+
+		if(checkSequenceInString(diagonalRight4))
+			howManySequences++;
+
+		if(howManySequences == 2) {
+			registerDnaIfUnic(dna.toString(), true);
+			return true;
+		}
+
+		if(checkSequenceInString(diagonalLeft0))
+			howManySequences++;
+
+		if(howManySequences == 2) {
+			registerDnaIfUnic(dna.toString(), true);
+			return true;
+		}
+
+		if(checkSequenceInString(diagonalLeft1))
+			howManySequences++;
+
+		if(howManySequences == 2) {
+			registerDnaIfUnic(dna.toString(), true);
+			return true;
+		}
+
+		if(checkSequenceInString(diagonalLeft2))
+			howManySequences++;
+
+		if(howManySequences == 2) {
+			registerDnaIfUnic(dna.toString(), true);
+			return true;
+		}
+
+		if(checkSequenceInString(diagonalLeft3))
+			howManySequences++;
+
+		if(howManySequences == 2) {
+			registerDnaIfUnic(dna.toString(), true);
+			return true;
+		}
+
+		if(checkSequenceInString(diagonalLeft4))
+			howManySequences++;
+
+		if(howManySequences == 2) {
+			registerDnaIfUnic(dna.toString(), true);
+			return true;
+		}
+
+		registerDnaIfUnic(dna.toString(), false);
 		//se não encontrou duas sequências de 4 caracteres repetidos lança uma exceção de não mutante
 		//com o http status 403 (FORBIDDEN)
 		throw new ForbiddenException("Dna não mutante!!!");
 	}
 
-	
 	/**
 	 * Função que valida a existência de 4 caracteres repetidos em sequência no array de chars
 	 * @param dnaChars
@@ -339,6 +456,14 @@ public class MutantServiceImpl implements MutantService {
 					&& dnaChars[3] == dnaChars[4]) return true;
 		}
 		return false;
+	}
+
+	private void registerDnaIfUnic(String dna, boolean isMutant) {
+		try {
+			mutantRepository.save(new Dna(dna, isMutant));
+		} catch (DataIntegrityViolationException e) {
+			//não faz nada, somente impede de gravar um registro duplicado
+		}
 	}
 
 }
