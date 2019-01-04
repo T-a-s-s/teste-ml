@@ -20,7 +20,7 @@ public class MutantServiceImpl implements MutantService {
 	MutantRepository mutantRepository;
 
 	@Autowired
-	MutantServiceImpl (MutantRepository mutantRepository) {
+	public MutantServiceImpl (MutantRepository mutantRepository) {
 		this.mutantRepository = mutantRepository;
 	}
 

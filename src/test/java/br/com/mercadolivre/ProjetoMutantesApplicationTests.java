@@ -2,23 +2,28 @@ package br.com.mercadolivre;
 
 import static org.junit.Assert.assertTrue;
 
+import br.com.mercadolivre.repository.MutantRepository;
+import br.com.mercadolivre.service.impl.MutantServiceImpl;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
-
 import br.com.mercadolivre.service.MutantService;
-import br.com.mercadolivre.test.context.ProjetoMutantesTestContext;
 
 @RunWith(SpringRunner.class)
-@ContextConfiguration(classes=ProjetoMutantesTestContext.class)
-@SpringBootTest
+@DataJpaTest
 public class ProjetoMutantesApplicationTests {
 	
-	@Autowired
 	public MutantService mutantService;
+	@MockBean(name = "mutantRepository")
+	public MutantRepository mutantRepository;
+
+	@Before
+	public void setUp() throws Exception {
+		this.mutantService = new MutantServiceImpl(mutantRepository);
+	}
 	
 	@Test
 	public void isMutantTest() {
