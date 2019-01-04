@@ -15,10 +15,10 @@ import br.com.mercadolivre.service.MutantService;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class ProjetoMutantesApplicationTests {
-	
-	public MutantService mutantService;
+
 	@MockBean(name = "mutantRepository")
 	public MutantRepository mutantRepository;
+	public MutantService mutantService;
 
 	@Before
 	public void setUp() throws Exception {
