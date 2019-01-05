@@ -7,6 +7,9 @@ import br.com.mercadolivre.service.MutantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 /**
  * @author Tomas Anderson Souza Silva
  * 
@@ -464,6 +467,11 @@ public class MutantServiceImpl implements MutantService {
 		} catch (DataIntegrityViolationException e) {
 			//não faz nada, somente impede de gravar um registro duplicado
 		}
+	}
+
+	@Override
+	public List<Dna> getMutants() {
+		return mutantRepository.findAll();
 	}
 
 }
