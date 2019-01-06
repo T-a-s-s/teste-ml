@@ -1,5 +1,7 @@
 package br.com.mercadolivre.api.v1;
 
+import br.com.mercadolivre.dto.MutantRequest;
+import br.com.mercadolivre.dto.StatsDto;
 import br.com.mercadolivre.entity.Dna;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,13 +29,19 @@ public class MutantesController {
 	
 	@PostMapping("/mutants")
 	@ResponseStatus(HttpStatus.OK)
-	public void isMutant(@RequestBody String[] dna) {
-		mutantService.isMutant(dna);
+	public void isMutant(@RequestBody MutantRequest dna) {
+		mutantService.isMutant(dna.getDna());
 	}
 
 	@GetMapping("/mutants")
 	@ResponseStatus(HttpStatus.OK)
 	public List<Dna> getMutants() {
 		return mutantService.getMutants();
+	}
+
+	@GetMapping("/mutants/stats")
+	@ResponseStatus(HttpStatus.OK)
+	public StatsDto getStats() {
+		return mutantService.getStats();
 	}
 }

@@ -1,6 +1,7 @@
 package br.com.mercadolivre.service.impl;
 
 import br.com.mercadolivre.api.exception.ForbiddenException;
+import br.com.mercadolivre.dto.StatsDto;
 import br.com.mercadolivre.repository.MutantRepository;
 import br.com.mercadolivre.entity.Dna;
 import br.com.mercadolivre.service.MutantService;
@@ -33,14 +34,14 @@ public class MutantServiceImpl implements MutantService {
 		int howManySequences = 0;
 		
 		//valida se nas sequências horizontais possuem caracteres repetidos 4 vezes seguidas
-		if(checkSequenceInString(dna[0].toCharArray())) 
+		if(checkSequenceInString(dna[0].toCharArray()))
 			howManySequences++;
 		
-		if(checkSequenceInString(dna[1].toCharArray())) 
+		if(checkSequenceInString(dna[1].toCharArray()))
 			howManySequences++;
 
 		if(howManySequences == 2) {
-			registerDnaIfUnic(dna.toString(), true);
+			registerDnaIfUnic(dnaToString(dna), true);
 			return true;
 		}
 		
@@ -48,7 +49,7 @@ public class MutantServiceImpl implements MutantService {
 			howManySequences++;
 
 		if(howManySequences == 2) {
-			registerDnaIfUnic(dna.toString(), true);
+			registerDnaIfUnic(dnaToString(dna), true);
 			return true;
 		}
 		
@@ -56,7 +57,7 @@ public class MutantServiceImpl implements MutantService {
 			howManySequences++;
 
 		if(howManySequences == 2) {
-			registerDnaIfUnic(dna.toString(), true);
+			registerDnaIfUnic(dnaToString(dna), true);
 			return true;
 		}
 		
@@ -64,7 +65,7 @@ public class MutantServiceImpl implements MutantService {
 			howManySequences++;
 
 		if(howManySequences == 2) {
-			registerDnaIfUnic(dna.toString(), true);
+			registerDnaIfUnic(dnaToString(dna), true);
 			return true;
 		}
 		
@@ -72,11 +73,11 @@ public class MutantServiceImpl implements MutantService {
 			howManySequences++;
 
 		if(howManySequences == 2) {
-			registerDnaIfUnic(dna.toString(), true);
+			registerDnaIfUnic(dnaToString(dna), true);
 			return true;
 		}
 		
-		//inicia os array de caracteres utilizados para armazenar as linhas que precisam ser validadas
+		//inicia os arrays de caracteres utilizados para armazenar as linhas que precisam ser validadas
 		char[] vertical0 = new char[6];
 		char[] vertical1 = new char[6];
 		char[] vertical2 = new char[6];
@@ -312,7 +313,7 @@ public class MutantServiceImpl implements MutantService {
 			howManySequences++;
 
 		if(howManySequences == 2) {
-			registerDnaIfUnic(dna.toString(), true);
+			registerDnaIfUnic(dnaToString(dna), true);
 			return true;
 		}
 
@@ -320,7 +321,7 @@ public class MutantServiceImpl implements MutantService {
 			howManySequences++;
 
 		if(howManySequences == 2) {
-			registerDnaIfUnic(dna.toString(), true);
+			registerDnaIfUnic(dnaToString(dna), true);
 			return true;
 		}
 
@@ -328,7 +329,7 @@ public class MutantServiceImpl implements MutantService {
 			howManySequences++;
 
 		if(howManySequences == 2) {
-			registerDnaIfUnic(dna.toString(), true);
+			registerDnaIfUnic(dnaToString(dna), true);
 			return true;
 		}
 
@@ -336,7 +337,7 @@ public class MutantServiceImpl implements MutantService {
 			howManySequences++;
 
 		if(howManySequences == 2) {
-			registerDnaIfUnic(dna.toString(), true);
+			registerDnaIfUnic(dnaToString(dna), true);
 			return true;
 		}
 
@@ -344,7 +345,7 @@ public class MutantServiceImpl implements MutantService {
 			howManySequences++;
 
 		if(howManySequences == 2) {
-			registerDnaIfUnic(dna.toString(), true);
+			registerDnaIfUnic(dnaToString(dna), true);
 			return true;
 		}
 
@@ -352,7 +353,7 @@ public class MutantServiceImpl implements MutantService {
 			howManySequences++;
 
 		if(howManySequences == 2) {
-			registerDnaIfUnic(dna.toString(), true);
+			registerDnaIfUnic(dnaToString(dna), true);
 			return true;
 		}
 
@@ -360,7 +361,7 @@ public class MutantServiceImpl implements MutantService {
 			howManySequences++;
 
 		if(howManySequences == 2) {
-			registerDnaIfUnic(dna.toString(), true);
+			registerDnaIfUnic(dnaToString(dna), true);
 			return true;
 		}
 
@@ -368,7 +369,7 @@ public class MutantServiceImpl implements MutantService {
 			howManySequences++;
 
 		if(howManySequences == 2) {
-			registerDnaIfUnic(dna.toString(), true);
+			registerDnaIfUnic(dnaToString(dna), true);
 			return true;
 		}
 
@@ -376,7 +377,7 @@ public class MutantServiceImpl implements MutantService {
 			howManySequences++;
 
 		if(howManySequences == 2) {
-			registerDnaIfUnic(dna.toString(), true);
+			registerDnaIfUnic(dnaToString(dna), true);
 			return true;
 		}
 
@@ -384,7 +385,7 @@ public class MutantServiceImpl implements MutantService {
 			howManySequences++;
 
 		if(howManySequences == 2) {
-			registerDnaIfUnic(dna.toString(), true);
+			registerDnaIfUnic(dnaToString(dna), true);
 			return true;
 		}
 
@@ -392,7 +393,7 @@ public class MutantServiceImpl implements MutantService {
 			howManySequences++;
 
 		if(howManySequences == 2) {
-			registerDnaIfUnic(dna.toString(), true);
+			registerDnaIfUnic(dnaToString(dna), true);
 			return true;
 		}
 
@@ -400,7 +401,7 @@ public class MutantServiceImpl implements MutantService {
 			howManySequences++;
 
 		if(howManySequences == 2) {
-			registerDnaIfUnic(dna.toString(), true);
+			registerDnaIfUnic(dnaToString(dna), true);
 			return true;
 		}
 
@@ -408,7 +409,7 @@ public class MutantServiceImpl implements MutantService {
 			howManySequences++;
 
 		if(howManySequences == 2) {
-			registerDnaIfUnic(dna.toString(), true);
+			registerDnaIfUnic(dnaToString(dna), true);
 			return true;
 		}
 
@@ -416,7 +417,7 @@ public class MutantServiceImpl implements MutantService {
 			howManySequences++;
 
 		if(howManySequences == 2) {
-			registerDnaIfUnic(dna.toString(), true);
+			registerDnaIfUnic(dnaToString(dna), true);
 			return true;
 		}
 
@@ -424,7 +425,7 @@ public class MutantServiceImpl implements MutantService {
 			howManySequences++;
 
 		if(howManySequences == 2) {
-			registerDnaIfUnic(dna.toString(), true);
+			registerDnaIfUnic(dnaToString(dna), true);
 			return true;
 		}
 
@@ -432,11 +433,11 @@ public class MutantServiceImpl implements MutantService {
 			howManySequences++;
 
 		if(howManySequences == 2) {
-			registerDnaIfUnic(dna.toString(), true);
+			registerDnaIfUnic(dnaToString(dna), true);
 			return true;
 		}
 
-		registerDnaIfUnic(dna.toString(), false);
+		registerDnaIfUnic(dnaToString(dna), false);
 		//se não encontrou duas sequências de 4 caracteres repetidos lança uma exceção de não mutante
 		//com o http status 403 (FORBIDDEN)
 		throw new ForbiddenException("Dna não mutante!!!");
@@ -469,9 +470,38 @@ public class MutantServiceImpl implements MutantService {
 		}
 	}
 
+	private String dnaToString(String[] dna) {
+		return new StringBuilder()
+				.append(dna[0])
+				.append(dna[1])
+				.append(dna[2])
+				.append(dna[3])
+				.append(dna[4])
+				.append(dna[5])
+				.toString();
+	}
 	@Override
 	public List<Dna> getMutants() {
 		return mutantRepository.findAll();
 	}
 
+	@Override
+	public StatsDto getStats() {
+		List<Dna> dnas = mutantRepository.findAll();
+		int mutantCount = 0;
+		for (Dna dna : dnas) {
+			if (dna.isMutant()){
+				mutantCount++;
+			}
+		}
+		StatsDto stats = new StatsDto();
+		stats.setCountHumanDna(dnas.size());
+		stats.setCountMutantDna(mutantCount);
+		if(dnas.size() != 0) {
+			stats.setRatio((mutantCount * 100) / dnas.size());
+		} else {
+			stats.setRatio(0);
+		}
+		return stats;
+	}
 }
