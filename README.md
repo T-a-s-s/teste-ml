@@ -45,7 +45,7 @@ Com o jar construído você deverá implantá-lo em um ambiente AWS para execut�
 
 Neste caminho você encontra o nível gratúito AWS onde você poderá implantar o projeto: https://aws.amazon.com/pt/free
 
-Crie um ambiente no Elasti Beanstalk: https://us-west-2.console.aws.amazon.com/elasticbeanstalk
+Crie um ambiente no Elastic Beanstalk: https://us-west-2.console.aws.amazon.com/elasticbeanstalk
 Doc de como realizar esta tarefa: https://docs.aws.amazon.com/pt_br/elasticbeanstalk/latest/dg/using-features.environments.html
 
 Após o ambiente criado, você deverá criar um banco de dados mysql na amazon RDS: https://us-west-2.console.aws.amazon.com/rds
