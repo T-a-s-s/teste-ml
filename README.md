@@ -7,4 +7,5 @@ Escolhi hospedar na AWS para praticar a utilização das ferramentas, obrigado p
 
 ## API
 
-
+## Página de versões da app
+https://us-west-2.console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2#/application/versions?applicationName=mutant-project
