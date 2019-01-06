@@ -1,6 +1,8 @@
 package br.com.mercadolivre.entity;
 
 
+import lombok.Getter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,9 +12,9 @@ import javax.persistence.Table;
 @Table(name="DNA")
 public class Dna {
 
-    public Dna (String dna, boolean isMutant) {
+    public Dna (String dna, boolean mutant) {
         this.dna = dna;
-        this.isMutant = isMutant;
+        this.mutant = mutant;
     }
 
     public Dna () {}
@@ -22,6 +24,7 @@ public class Dna {
     String dna;
 
     @Column(name="IS_MUTANT")
-    boolean isMutant;
+    @Getter
+    boolean mutant;
 
 }
