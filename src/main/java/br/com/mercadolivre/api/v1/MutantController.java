@@ -13,12 +13,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/v1")
-public class MutantesController {
+public class MutantController {
 	
 	private MutantService mutantService;
 
 	@Autowired
-	MutantesController(MutantService mutantService) {
+	public MutantController(MutantService mutantService) {
 		this.mutantService = mutantService;
 	}
 

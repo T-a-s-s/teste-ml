@@ -19,7 +19,7 @@ import br.com.mercadolivre.service.MutantService;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
-public class ProjetoMutantesApplicationTests {
+public class ProjetoMutantesApplicationTest {
 
 	@Autowired
 	private MutantRepository mutantRepository;
@@ -70,7 +70,6 @@ public class ProjetoMutantesApplicationTests {
 		assertTrue(statsDto.getRatio() == 75.0F);
 
 	}
-	
 
 }
 
