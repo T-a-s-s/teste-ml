@@ -41,7 +41,7 @@ mvn clean install
 Agora com o projeto construído, navegue para a pasta target, e lá você encontrará o JAR do projeto.
 
 ## Executar o projeto
-Com o jar construído você deverá implantá-lo em um ambiente AWS para executá-lo.
+Com o JAR construído você deverá implantá-lo em um ambiente AWS para executá-lo.
 
 Neste caminho você encontra o nível gratúito AWS onde você poderá implantar o projeto: https://aws.amazon.com/pt/free
 
@@ -51,11 +51,11 @@ Neste caminho você encontra o nível gratúito AWS onde você poderá implantar
 <p>Após o ambiente criado, você deverá criar um banco de dados mysql na amazon RDS: https://us-west-2.console.aws.amazon.com/rds</p>
 <p>Doc de como realizar esta tarefa: https://docs.aws.amazon.com/pt_br/opsworks/latest/userguide/customizing-rds-connect-create.html</p>
 
-<p>Você deverá conceder acesso ao grupo de segurança que seu banco de dados utiliza para que seu ip consiga conectar neste, verifique o grupo de acesso que seu banco de dados possui em seguida leia este manual de como realizar a tarefa: https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/using-network-security.html</p>
+<p>Você deverá conceder acesso ao grupo de segurança que seu banco de dados utiliza para que seu ip consiga conectar neste. Verifique o grupo de acesso que seu banco de dados possui e em seguida leia este manual de como realizar a tarefa: https://docs.aws.amazon.com/pt_br/AWSEC2/latest/UserGuide/using-network-security.html</p>
 
 <p>Para que a aplicação consiga configurar o ambiente enquanto é executada você deverá dar as devidas permissões de acesso ao role específico que sua aplicação possuirá, o spring boot irá reconhecer este role automaticamente, porém você precisará conceder as devidas permissões de acesso ao role em: https://console.aws.amazon.com/iam/home?region=us-west-2#/roles</p>
 
-Agora basta realizar o deploy do jar criado no passo de construção do projeto.
+Agora basta realizar o deploy do JAR criado no passo de construção do projeto.
 
 Siga para o painel do Elastic Beanstalk da instância criada na AWS e aperte o botão *Fazer Upload e Implantar* e aguarde a finalização da implantação.
 
