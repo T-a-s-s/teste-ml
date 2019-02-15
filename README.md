@@ -5,7 +5,7 @@ Algum mutante pode estar vigiando-o enquanto isso. </p>
 
 <p>Escolhi hospedar na AWS para praticar a utilização das ferramentas, obrigado pela oportunidade.</p>
 
-## API
+## API (DESLIGUEI A API NA AMAZON PARA NÃO ULTRAPASSAR O FREE TIER)
 Para validar e verificar o funcionamento da API visite:
 http://mutant-dev.us-west-2.elasticbeanstalk.com/swagger-ui.html
 
